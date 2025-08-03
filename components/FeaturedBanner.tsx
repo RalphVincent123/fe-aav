@@ -3,25 +3,62 @@ import logo from "@/public/logo/img1.jpg";
 import Image from "next/image";
 export default function FeaturedBanner() {
   return (
-    <>
-      <div className={styles.banner}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src={logo}
-            alt="Banner"
-            layout="fill"
-            objectFit="cover"
-            className={styles.image}
-          />
-        </div>
+    <div className={styles.container}>
+      <div className={styles.raise}>
+        <span className={styles.section}>Top News</span>
+      </div>
+      <div className={styles.card}>
+        <Image src={logo} alt="asdad" className={styles.images} />
         <div className={styles.content}>
-          <h2 className={styles.title}>Welcome to Our Platform</h2>
-          <p className={styles.subtitle}>Discover amazing features and deals</p>
-          <a href="/explore" className={styles.cta}>
-            Explore Now
-          </a>
+          <span className={styles.title}>Card One</span>
+          <br />
+          <span className={styles.description}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            error veniam quam reprehenderit saepe quae corporis. Aliquid tempora
+            ea incidunt debitis dolorem. Aliquam, nihil? Quibusdam illo iste
+            distinctio pariatur soluta?
+          </span>
         </div>
       </div>
-    </>
+      <div className={styles.card}>
+        <Image src={logo} alt="asdad" className={styles.images} />
+        <div className={styles.content}>
+          <span className={styles.title}>Card One</span>
+          <br />
+          <span className={styles.description}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            error veniam quam reprehenderit saepe quae corporis. Aliquid tempora
+            ea incidunt debitis dolorem. Aliquam, nihil? Quibusdam illo iste
+            distinctio pariatur soluta?
+          </span>
+        </div>
+      </div>
+      <div className={styles.card}>
+        <Image src={logo} alt="asdad" className={styles.images} />
+        <div className={styles.content}>
+          <span className={styles.title}>Card Ones</span>
+          <br />
+          <span className={styles.description}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            error veniam quam reprehenderit saepe quae corporis. Aliquid tempora
+            ea incidunt debitis dolorem. Aliquam, nihil? Quibusdam illo iste
+            distinctio pariatur soluta?
+          </span>
+        </div>
+      </div>
+      <div className={styles.card}>
+        <Image src={logo} alt="asdad" className={styles.images} />
+        <div className={styles.content}>
+          <span className={styles.title}>Card One</span>
+          <br />
+          <span className={styles.description}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            error veniam quam reprehenderit saepe quae corporis. Aliquid tempora
+            ea incidunt debitis dolorem. Aliquam, nihil? Quibusdam illo iste
+            distinctio pariatur soluta?
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -5,11 +5,7 @@ import FeaturedBanner from "@/components/FeaturedBanner";
 
 export default function Home() {
   return (
-    <main id="main" style={{ position: "relative" }}>
-      <div
-        className="background-sidebar background-sidebar-hidden"
-        id={"backdrop"}
-      ></div>
+    <main id="main" style={{ position: "relative", background: "#212529" }}>
       <ArticleBanner />
       <FeaturedBanner />
     </main>
