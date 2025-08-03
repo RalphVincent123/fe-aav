@@ -1,0 +1,138 @@
+@use "../styles/base/mixins";
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+//   margin-left: 10px;
+  padding: 0;
+}
+
+.footer {
+  background-color: #24262b;
+}
+
+.rowGroup {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.footerCol {
+  width: 25.33%;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+
+  .title {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 15px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: #e91e63;
+      height: 2px;
+      width: 50px;
+    }
+  }
+
+  .description {
+    text-align: justify;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .unList {
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+
+    .companyList {
+      margin-bottom: 10px;
+
+      .core {
+        text-align: center;
+        max-width: 200px;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 15px;
+      }
+    }
+  }
+
+  .socialLinks {
+    margin-top: 25px;
+
+    .links {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 10px 10px 0;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      color: #ffffff;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: #24262b;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+.footContainer {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ffffff;
+
+  .Copyright {
+    color: white;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+// Responsive styles
+@media (max-width: 767px) {
+  .footerCol {
+	text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+	margin: 0;
+
+	.title {	
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background-color: #24262b;
+			height: 2px;
+			width: 50px
+    	}
+	}
+	 .description {
+        text-align: center;
+  }
+  }
+
+  .rowGroup {
+	text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
