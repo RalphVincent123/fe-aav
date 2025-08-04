@@ -33,12 +33,12 @@ export default function Navigation() {
           <a href="#" onClick={() => setMenuOpen(false)}>
             Home
           </a>
-          <a href="#" onClick={() => setMenuOpen(false)}>
+          {/* <a href="#" onClick={() => setMenuOpen(false)}>
             About
           </a>
           <a href="#" onClick={() => setMenuOpen(false)}>
             Services
-          </a>
+          </a> */}
           <a href="#" onClick={() => setMenuOpen(false)}>
             Contact
           </a>
