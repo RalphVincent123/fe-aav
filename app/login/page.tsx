@@ -1,5 +1,12 @@
 import LoginForm from "@/components/LoginForm";
-export default function Login() {
+
+export default async function Login({
+  searchParams,
+}: {
+  searchParams?: Promise<{ mode?: "login" | "signup" }>;
+}) {
+  const params = await searchParams; // ✅ await here
+  const formMode = params?.mode === "signup" ? "signup" : "login";
   return (
     <main id="main" style={{ position: "sticky" }}>
       <div
@@ -9,7 +16,7 @@ export default function Login() {
           justifyContent: "center",
         }}
       >
-        <LoginForm />
+        <LoginForm mode={formMode} />
       </div>
     </main>
   );

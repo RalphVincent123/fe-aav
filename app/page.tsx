@@ -1,11 +1,16 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import ArticleBanner from "@/components/ArticleBanner";
 import FeaturedBanner from "@/components/FeaturedBanner";
 import SliderBanner from "@/components/SliderBanner";
-import LoginForm from "@/components/LoginForm";
+import { verifyAuth } from "@/libs/authentication/auth";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const result = await verifyAuth();
+
+  if (!result.user) {
+    return redirect("/login");
+  }
+
   return (
     <main id="main" style={{ position: "relative" }}>
       <ArticleBanner />

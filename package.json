@@ -11,11 +11,14 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@lucia-auth/adapter-sqlite": "^3.0.2",
     "@storybook/addon-viewport": "^9.0.8",
+    "better-sqlite3": "^11.10.0",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.6.0",
     "embla-carousel-class-names": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "lucia": "^3.2.2",
     "lucide-react": "^0.535.0",
     "next": "15.4.5",
     "react": "19.1.0",
@@ -30,6 +33,7 @@
     "@storybook/addon-docs": "^9.0.18",
     "@storybook/addon-vitest": "^9.0.18",
     "@storybook/nextjs-vite": "^9.0.18",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
