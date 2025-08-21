@@ -1,7 +1,8 @@
 
 .container {
     background: rgb(247, 245, 245);
-    height: 400px;
+    height: 420px;
+    max-height: 100%;
     padding: 25px;
     margin: 8rem 0;
     border-radius: 4px;
@@ -24,7 +25,7 @@
     }
 
     .formsFields {
-        margin: 40px auto;
+        margin: 20px auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -58,13 +59,13 @@
             // font-size: 17px;
         }
     }
-
     .submitButton {
         display: flex;
         justify-content: flex-end;
         margin-right: 10px;
 
         .buttonLogin {
+            margin-top: 20px;
             border: none;
             font-size: 14px;
             font-weight: 700;
@@ -79,5 +80,24 @@
         justify-content: center;
         align-items: center;
         padding: 25px 0;
+    }
+    .message {
+        color: red;
+        font-size: 15px;
+        margin: 10px 0;
+        text-align: center;
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+}
+
+@media (max-width: 628px) {
+    .container {
+        width: 75%;
+        height: 420px;
+    }
+    .logForm {
+        width: 100%;
     }
 }

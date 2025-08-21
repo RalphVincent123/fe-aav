@@ -3,7 +3,6 @@ import { createUser, getUserByEmail } from "../database/user";
 import { hashUserPassword, verifyPassword } from "../database/hash.mjs";
 import { redirect } from "next/navigation";
 import { createAuthSession } from "../authentication/auth";
-import { errors } from "playwright";
 
 export type AuthMode = "login" | "signup";
 
@@ -44,7 +43,7 @@ export async function Signup(
     if (error.code === "SQLITE_CONSTRAINT_UNIQUE") {
       return {
         errors: {
-          email: "it seems like an account has been exisiting",
+          email: "It seems like an account has been exisiting",
         },
       };
     }
@@ -61,7 +60,7 @@ export async function login(
   if (typeof email !== "string" || typeof password !== "string") {
     return {
       errors: {
-        form: "Invalid form submission",
+        form: "Email and password is required",
       },
     };
   }
@@ -71,7 +70,7 @@ export async function login(
   if (!existingUser) {
     return {
       errors: {
-        email: " Could not authenticate user, please check your credentials",
+        email: "Email or password is incorrect",
       },
     };
   }
@@ -80,12 +79,12 @@ export async function login(
   if (!isvalidPassword) {
     return {
       errors: {
-        password: "Could not authenticate user, please check your credentials",
+        password: "Password is incorrect.",
       },
     };
   }
   await createAuthSession(String(existingUser.id));
-  redirect("/");
+  redirect("/training");
 }
 
 export async function auth(

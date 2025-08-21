@@ -1,9 +1,10 @@
 "use client";
 import style from "@/styles/LoginForm.module.scss";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { auth } from "@/libs/actions/auth-actions";
 import { iFormstate } from "@/libs/actions/auth-actions";
+import { useEffect } from "react";
 
 interface LoginFormProps {
   mode: "login" | "signup";
@@ -16,6 +17,16 @@ export default function LoginForm({ mode }: LoginFormProps) {
       errors: {},
     }
   );
+
+  const [framer, setFramer] = useState(false);
+
+  useEffect(() => {
+    if (formState.errors && Object.keys(formState.errors).length > 0) {
+      setFramer(true); // trigger animation/error state
+    } else {
+      setFramer(false);
+    }
+  }, [formState.errors]);
   return (
     <form className={style.container} action={formAction}>
       <div className={style.logForm}>
@@ -43,11 +54,11 @@ export default function LoginForm({ mode }: LoginFormProps) {
           />
         </div>
         {formState.errors && (
-          <ul>
+          <div className={`${style.message} ${framer ? style.shake : ""}`}>
             {Object.keys(formState.errors).map((error) => (
-              <li key={error}>{formState.errors[error]}</li>
+              <span key={error}>{formState.errors[error]}</span>
             ))}
-          </ul>
+          </div>
         )}
         <div className={style.submitButton}>
           <button className={style.buttonLogin}>
@@ -56,7 +67,7 @@ export default function LoginForm({ mode }: LoginFormProps) {
         </div>
         <p className={style.loginExisting}>
           {mode === "login" && (
-            <Link href="/login?mode=signup">Create An account.</Link>
+            <Link href="/login?mode=signup">Create an account.</Link>
           )}
           {mode === "signup" && (
             <Link href="/login?mode=login">Login with existing account.</Link>
