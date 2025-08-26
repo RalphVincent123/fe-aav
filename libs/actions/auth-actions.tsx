@@ -38,7 +38,7 @@ export async function Signup(
     const id = createUser(email, hashPassword);
 
     await createAuthSession(String(id));
-    redirect("/");
+    redirect("/login");
   } catch (error: any) {
     if (error.code === "SQLITE_CONSTRAINT_UNIQUE") {
       return {
@@ -84,7 +84,7 @@ export async function login(
     };
   }
   await createAuthSession(String(existingUser.id));
-  redirect("/training");
+  redirect("/dashboard");
 }
 
 export async function auth(

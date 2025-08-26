@@ -6,7 +6,9 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY,
     email TEXT UNIQUE,
-    password TEXT
+    password TEXT,
+    reset_token TEXT,
+    reset_token_expiry INTEGER
   );
 `);
 
@@ -16,15 +18,6 @@ db.exec(`
     expires_at INTEGER NOT NULL,
     user_id TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
-`);
-
-db.exec(`
-  CREATE TABLE IF NOT EXISTS trainings (
-    id INTEGER PRIMARY KEY,
-    title TEXT,
-    image TEXT,
-    description TEXT
   );
 `);
 

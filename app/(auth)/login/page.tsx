@@ -1,4 +1,6 @@
 import LoginForm from "@/components/LoginForm";
+import { verifyAuth } from "@/libs/authentication/auth";
+import { redirect } from "next/navigation";
 
 export default async function Login({
   searchParams,
@@ -7,6 +9,13 @@ export default async function Login({
 }) {
   const params = await searchParams; // ✅ await here
   const formMode = params?.mode === "signup" ? "signup" : "login";
+
+  const result = await verifyAuth();
+
+  if (result.user) {
+    return redirect("/dashboard");
+  }
+
   return (
     <main
       id="main"

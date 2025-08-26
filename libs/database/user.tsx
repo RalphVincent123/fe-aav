@@ -1,4 +1,5 @@
 import db from "./db.mjs";
+import crypto from "crypto";
 
 type User = {
   id: number;
@@ -6,9 +7,14 @@ type User = {
   password: string;
 };
 export function createUser(email: string, password: string) {
+  const token = crypto.randomBytes(32).toString("hex");
+  const expiry = Date.now() + 1000 * 60 * 15;
+
   const result = db
-    .prepare("INSERT INTO users (email, password) VALUES (?, ?)")
-    .run(email, password);
+    .prepare(
+      "INSERT INTO users (email, password,reset_token,reset_token_expiry) VALUES (?, ?,?,?)"
+    )
+    .run(email, password, token, expiry);
 
   return result.lastInsertRowid;
 }
